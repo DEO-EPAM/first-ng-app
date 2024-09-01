@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { booleanAttribute, Component, Input, numberAttribute } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
+function greetName(name: string){
+  return "Hiii " + name;
+}
 
 @Component({
   selector: 'app-user-profile',
@@ -10,17 +14,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './user-profile.component.css'
 })
 export class UserProfileComponent {
-  name= "Dev Raj"
-  age=23
-  salary=50000
-  isBtnDisabled= false
-  inputVal="Default input"
-  users = [
-    {name: "Dev Raj", age: 23, sex: "Male"},{name: "Sahil", age: 19, sex: "Male"},{name: "Vishu", age: 20, sex: "Female"}
-  ];
-  onChange(e: Event){
-    const value= (e.target as HTMLInputElement).value;
-    console.log(value);
-    this.inputVal= value
-  }
+  @Input({transform : greetName}) name=""
+  @Input({transform: booleanAttribute}) isSingle!: boolean
+  @Input({transform: numberAttribute}) salary!: number
 }
