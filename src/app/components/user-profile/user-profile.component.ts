@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { booleanAttribute, Component, Input, numberAttribute } from '@angular/core';
+import { booleanAttribute, Component, EventEmitter, Input, numberAttribute, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 function greetName(name: string){
@@ -17,4 +17,8 @@ export class UserProfileComponent {
   @Input({transform : greetName}) name=""
   @Input({transform: booleanAttribute}) isSingle!: boolean
   @Input({transform: numberAttribute}) salary!: number
+  @Output () myEvent= new EventEmitter<string>()
+  sendData(){
+    this.myEvent.emit("Coders never quit");
+  }
 }
