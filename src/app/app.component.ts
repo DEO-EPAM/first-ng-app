@@ -16,8 +16,8 @@ export class AppComponent {
   title = 'first-ng-app';
   users= [
     {name: "Dev", isSingle: false, salary: 85000, phoneno: 7231950617},
-    {name: "Vishu", isSingle: false, salary: 95000, phoneno: 7231950617},
-    {name: "Raj", isSingle: true, salary: 75000, phoneno: 7231950617}
+    // {name: "Vishu", isSingle: false, salary: 95000, phoneno: 7231950617},
+    // {name: "Raj", isSingle: true, salary: 75000, phoneno: 7231950617}
   ]
   receivedData(e: User){
     const userIndex = this.users.findIndex((u) => {
@@ -29,5 +29,8 @@ export class AppComponent {
     } else {
       console.error(`User with name ${e.name} not found.`);
     }
+  }
+  clearUsers(){
+    this.users=[];
   }
 }
